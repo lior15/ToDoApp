@@ -42,7 +42,7 @@ sudo systemctl start mongod
 ### run the program
 
 to run the program you need to enter the todo-app and run the following in terminal -
-npm run init
+npm run init /n
 npm run start
 
 now everything is set and you can reach http://localhost:4200 
