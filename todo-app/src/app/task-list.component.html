@@ -1,0 +1,11 @@
+<mat-card *ngFor="let task of tasks">
+  <mat-checkbox [checked] = "task.completed" (change)="markCompleted(task)" [disabled]="isLocked(task)">
+  {{ task.title }}  
+  </mat-checkbox>
+  <button mat-icon-button color="warn" (click)="deleteTask(task.id)" [disabled]="isLocked(task)">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" (click)="updateTask(task)" [disabled]="isLocked(task)">
+    <mat-icon>edit</mat-icon>
+  </button>
+</mat-card>

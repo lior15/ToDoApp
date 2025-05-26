@@ -1,5 +1,8 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { TaskModule } from './app/task.module';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { TaskListComponent } from './app/task-list.component'; // Marked as standalone
+import { provideHttpClient } from '@angular/common/http';
 
-platformBrowserDynamic().bootstrapModule(TaskModule)
+bootstrapApplication(TaskListComponent, {
+  providers: [provideHttpClient()]
+})
   .catch(err => console.error(err));
