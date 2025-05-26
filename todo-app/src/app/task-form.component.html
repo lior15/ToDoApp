@@ -3,6 +3,10 @@
         <mat-label>Task Title</mat-label>
         <input matInput [(ngModel)]="task.title" />
     </mat-form-field>
+     <mat-form-field>
+        <mat-label>Task Description</mat-label>
+        <input matInput [(ngModel)]="task.description" />
+    </mat-form-field>
     <mat-form-field>
         <mat-label>Priority</mat-label>
         <mat-select [(ngModel)]="task.priority">

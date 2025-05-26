@@ -42,7 +42,6 @@ export class TaskListComponent implements OnInit {
 
   }
   deleteTask(task: Task): void {
-  // Ensure this task is not currently being edited
   if (task.inEditMode || this.editingtaskID === task.id) {
     this.openLockAlert('Cannot delete a task that is being edited.');
     return;
@@ -50,7 +49,7 @@ export class TaskListComponent implements OnInit {
 
   this.taskService.deleteTask(task.id).subscribe(() => {
     this.socketService.emit('taskDeleted', task.id);
-    this.loadTasks(); // <-- Ensures UI reflects the deletion immediately
+    this.loadTasks();
   });
 }
 
@@ -63,7 +62,6 @@ export class TaskListComponent implements OnInit {
     })
   }
   markCompleted(task: Task): void {
-  // Just toggle and send update directly without editing lock
     const updatedTask = { ...task, completed: !task.completed };
 
     this.taskService.updateTask(updatedTask).subscribe(updated => {
@@ -85,9 +83,9 @@ export class TaskListComponent implements OnInit {
 
   openLockAlert(message: string): void {
     this.snackBar.open(message, 'Close', {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'center', // Options: 'start', 'center', 'end', 'left', 'right'
-      verticalPosition: 'bottom', // Options: 'top', 'bottom'
+      duration: 3000, 
+      horizontalPosition: 'center', 
+      verticalPosition: 'bottom', 
     });
   }
 

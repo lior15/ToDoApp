@@ -9,7 +9,7 @@
 }
 
 .task-list mat-card:hover {
-    border-left-color: #3f51b5; /* Blue on hover */
+    border-left-color: #3f51b5; 
     cursor: pointer;
 }
 
@@ -36,7 +36,7 @@
   gap: 12px;
   padding: 12px;
   margin-top: 12px;
-  background-color: rgba(255, 255, 255, 0.6); // subtle translucent layer
+  background-color: rgba(255, 255, 255, 0.6); 
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -118,29 +118,29 @@ mat-checkbox {
   transition: background-color 0.3s ease;
 
   &.priority-high {
-    background-color: #ffebee; // light red
+    background-color: #ffebee; 
     border-left: 4px solid #e53935;
   }
 
   &.priority-medium {
-    background-color: #fff8e1; // light orange
+    background-color: #fff8e1; 
     border-left: 4px solid #fb8c00;
   }
 
   &.priority-low {
-    background-color: #e8f5e9; // light green
+    background-color: #e8f5e9; 
     border-left: 4px solid #43a047;
   }
 
   &.completed {
     text-decoration: line-through;
     opacity: 0.6;
-    background-color: #f5f5f5; // override if needed
+    background-color: #f5f5f5; 
   }
 
   &.locked {
     position: relative;
-    border-left: 4px solid #ffc107; // yellow
+    border-left: 4px solid #ffc107;
   }
 }
 
@@ -153,11 +153,11 @@ mat-checkbox {
 
 
 .task-actions button.mat-icon-button.mat-warn:hover:not(:disabled) {
-  background-color: #ffcdd2; /* Light red for delete hover */
+  background-color: #ffcdd2; 
 }
 
 .task-actions button.mat-icon-button.mat-primary:hover:not(:disabled) {
-  background-color: #c5cae9; /* Light blue for edit hover */
+  background-color: #c5cae9; 
 }
 
 .task-actions button:hover:not(:disabled) {
@@ -179,7 +179,7 @@ mat-checkbox {
     text-transform: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
-    background-color: rgba(63, 81, 181, 0.1); // Indigo with low opacity
+    background-color: rgba(63, 81, 181, 0.1); 
     color: inherit;
 
     &:hover {

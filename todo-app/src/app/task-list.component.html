@@ -26,6 +26,11 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="edit-field">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="task.description">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="edit-field">
     <mat-label>Priority</mat-label>
     <mat-select [(ngModel)]="task.priority">
       <mat-option value="low">Low</mat-option>

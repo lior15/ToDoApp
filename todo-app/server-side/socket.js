@@ -10,21 +10,21 @@ function initSocket(server) {
     });
     io.on('connection', (socket) => {
         socket.on('taskUpdated', (task) => {
-            socket.broadcast.emit('taskUpdated', task); // Broadcast to all other clients
+            socket.broadcast.emit('taskUpdated', task); 
         });
         socket.on('taskCreated', (task) => {
-            socket.broadcast.emit('taskCreated', task); // Broadcast to all other clients
+            socket.broadcast.emit('taskCreated', task); 
         });
 
         socket.on('taskDeleted', (taskId) => {
-            socket.broadcast.emit('taskDeleted', taskId); // Broadcast to all other clients
+            socket.broadcast.emit('taskDeleted', taskId); 
         });
         socket.on('lockTask', (taskId) => {
-            socket.broadcast.emit('lockTask', taskId); // Broadcast to all other clients
+            socket.broadcast.emit('lockTask', taskId); 
         }
         );
         socket.on('unlockTask', (taskId) => {
-            socket.broadcast.emit('unlockTask', taskId); // Broadcast to all other clients
+            socket.broadcast.emit('unlockTask', taskId); 
         });
     });
 }
