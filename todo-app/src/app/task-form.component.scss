@@ -1,0 +1,21 @@
+.task-form mat-card {
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
+}
+.task-form button{
+    margin-top: 1rem;
+}
+::ng-deep .mat-option.priority-high {
+  color: #fff;
+  background-color: #e53935; // Red for high
+}
+
+::ng-deep .mat-option.priority-medium {
+  color: #fff;
+  background-color: #fb8c00; // Orange for medium
+}
+
+::ng-deep .mat-option.priority-low {
+  color: #fff;
+  background-color: #43a047; // Green for low
+}

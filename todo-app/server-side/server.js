@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { console } = require('inspector');
+const { initSocket } = require('./socket');
 
 const app = express();
 app.use(cors());
@@ -14,4 +15,4 @@ mongoose.connect('mongodb://localhost:27017/todo-app');
 const server = app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
-
+initSocket(server);

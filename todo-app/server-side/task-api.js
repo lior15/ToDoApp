@@ -13,13 +13,11 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    debugger;
     const task = await Task.findOneAndUpdate({id: req.params.id}, req.body, { new: true });
     res.json(task);
 })
 
 router.delete('/:id', async (req, res) => {
-    debugger;
     await Task.findOneAndDelete({id: req.params.id});
     res.sendStatus(204);
 })

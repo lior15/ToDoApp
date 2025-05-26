@@ -1,11 +1,51 @@
-<mat-card *ngFor="let task of tasks">
-  <mat-checkbox [checked] = "task.completed" (change)="markCompleted(task)" [disabled]="isLocked(task)">
-  {{ task.title }}  
+<task-form (taskCreated)="loadTasks()"></task-form>
+<hr>
+<mat-card *ngFor="let task of tasks" class="task-list" [ngClass]="getTaskClasses(task)">
+    <div class = "task-title">{{ task.title }} </div>
+  <div class="content">
+  <mat-checkbox class="task-completed-checkbox" [checked] = "task.completed" (change)="markCompleted(task)" [disabled]="task.inEditMode">
+    completed
   </mat-checkbox>
-  <button mat-icon-button color="warn" (click)="deleteTask(task.id)" [disabled]="isLocked(task)">
-    <mat-icon>delete</mat-icon>
+
+  <span class = "description">{{ task.description }}</span>
+  <span class="priority-label">{{ task.priority }}</span>
+<div class="task-actions">
+  <button mat-raised-button color="warn" class="task-button" (click)="deleteTask(task)">
+    Delete
   </button>
-  <button mat-icon-button color="primary" (click)="updateTask(task)" [disabled]="isLocked(task)">
-    <mat-icon>edit</mat-icon>
+  <button mat-raised-button color="primary" class="task-button" (click)="updateTask(task)">
+    Edit
   </button>
+</div>
+
+
+<div *ngIf="task.id === editingtaskID" class="task-edit-mode">
+  <mat-form-field appearance="outline" class="edit-field">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="task.title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="edit-field">
+    <mat-label>Priority</mat-label>
+    <mat-select [(ngModel)]="task.priority">
+      <mat-option value="low">Low</mat-option>
+      <mat-option value="medium">Medium</mat-option>
+      <mat-option value="high">High</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="edit-field">
+  <mat-label>Due Date</mat-label>
+  <input
+    id="dueDate"
+    matInput
+    type="date"
+    [(ngModel)]="task.dueDate"
+    class="custom-date-input"
+  />
+</mat-form-field>
+  <button mat-raised-button color="primary" (click)="saveTask(task)">Save</button>
+</div>
+</div>
+
 </mat-card>
