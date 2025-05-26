@@ -33,7 +33,6 @@ export class TaskFormComponent {
 
   constructor(private taskService: TaskService, private socketService: SocketService) {}
   createTask(): void {
-    debugger;
     this.taskService.createTask(this.task).subscribe((createdTask) => {
         this.socketService.emit('taskCreated', createdTask);
         this.taskCreated.emit();
